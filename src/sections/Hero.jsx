@@ -56,8 +56,7 @@ function Hero() {
           Winning Is Easy.
         </h1>
 
-        <ShinyText text="There's a million dollars in every computer." disabled={false} speed={10} className="text-lg" />
-        <ShinyText text="You just have to click the right buttons." disabled={false} speed={10} className="mb-8 text-lg" />
+        <ShinyText text="You just have to take the first step." disabled={false} speed={10} className="mb-8 text-lg" />
 
         {/* Input field */}
         <ChatBox />
