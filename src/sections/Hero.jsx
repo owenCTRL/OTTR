@@ -107,47 +107,6 @@ function Hero() {
             ))}
           </div>
         </AnimatedContent>
-
-        <AnimatedContent
-          distance={50}
-          direction="vertical"
-          reverse={false}
-          duration={2}
-          ease="power3.out"
-          initialOpacity={0}
-          animateOpacity={true}
-          scale={1.1}
-          threshold={0.2}
-          delay={2.7}
-        >
-          <div className="text-xs uppercase opacity-50 mb-2">
-            Used by top companies
-          </div>
-        </AnimatedContent>
-
-        <AnimatedContent
-          distance={50}
-          direction="vertical"
-          reverse={false}
-          duration={2}
-          ease="power3.out"
-          initialOpacity={0}
-          animateOpacity={true}
-          scale={1.1}
-          threshold={0.2}
-          delay={3.0}
-        >
-          <div className="flex flex-wrap justify-center items-center gap-6">
-            {["HubSpot", "VAPI", "Google", "Fireworks AI", "Parallel"].map((logo) => (
-              <span
-                key={logo}
-                className="text-sm sm:text-base font-medium text-white/50"
-              >
-                {logo}
-              </span>
-            ))}
-          </div>
-        </AnimatedContent>
       </div>
     </>
   );
