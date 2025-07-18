@@ -79,7 +79,7 @@ OTTR runs on a full-stack ecosystem of modern strategy engineering tools:
 
 [Python.org]: https://img.shields.io/badge/Python-0e66f1?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://Python.org
-[Javascript.com]: https://img.shields.io/badge/JavaScript-0e66f1?style=for-the-badge&logo=javascript&logoColor=black
+[Javascript.com]: https://img.shields.io/badge/JavaScript-0e66f1?style=for-the-badge&logo=javascript&logoColor=white
 [Javascript-url]: https://Javascript.com
 [Tensorflow.org]: https://img.shields.io/badge/TensorFlow-0e66f1?style=for-the-badge&logo=tensorflow&logoColor=white
 [Tensorflow-url]: https://www.tensorflow.org/
