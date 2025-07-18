@@ -18,7 +18,6 @@
   <strong>Your AI Strategy Consultant</strong><br />
   <em>Set your goal. We’ll take you there — guaranteed.</em>
   <br /><br />
-  OTTR is no longer a venture studio.<br />
   It’s your personal strategist — built on code, trained on results, and driven by outcomes.
   <br /><br />
   <a href="https://github.com/owenCTRL/OTTR/tree/main/models">See How It Works »</a>
