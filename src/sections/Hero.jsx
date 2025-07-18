@@ -44,7 +44,7 @@ function Hero() {
           threshold={0.2}
           delay={0.2}
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+          <h1 className="text-6xl font-extrabold mb-4">
             Winning is easy.
           </h1>
         </AnimatedContent>
