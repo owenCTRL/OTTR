@@ -21,7 +21,7 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={1.8}
+          delay={2.7}
         >
           <div className="mb-8 text-xs font-extrabold text-white/50 bg-black/50 px-4 py-1 rounded-full backdrop-blur-[40px] border border-white/20 flex items-center gap-2">
             <span className="relative flex h-2 w-2">
@@ -42,7 +42,7 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={0.2}
+          delay={0.4}
         >
           <h1 className="text-6xl font-extrabold mb-4">
             Winning is easy.
@@ -59,7 +59,7 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={1.0}
+          delay={1.4}
         >
           <ShinyText
             text="You just have to take the first step."
@@ -79,7 +79,7 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={0.4}
+          delay={0.6}
         >
           <ChatBox />
         </AnimatedContent>
@@ -94,7 +94,7 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={2.4}
+          delay={3.1}
         >
           <div className="flex gap-3 flex-wrap justify-center mt-8 mb-10 text-white/50">
             {["PyTorch", "Fireworks", "Arize", "Decagon"].map((company) => (
