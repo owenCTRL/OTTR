@@ -369,13 +369,16 @@ const GlobalSpotlight = ({
         rgba(${glowColor}, 0.04) 25%,
         rgba(${glowColor}, 0.02) 40%,
         rgba(${glowColor}, 0.01) 65%,
-        transparent 70%
+        rgba(${glowColor}, 0) 80%,
+        rgba(${glowColor}, 0) 100%
       );
       z-index: 200;
       opacity: 0;
       transform: translate(-50%, -50%);
       mix-blend-mode: screen;
+      transition: opacity 0.3s ease;
     `;
+
     document.body.appendChild(spotlight);
     spotlightRef.current = spotlight;
 
@@ -703,16 +706,16 @@ const MagicBento = ({
                   enableMagnetism={enableMagnetism}
                 >
                   <div className="card__header flex justify-between gap-3 relative text-white">
-                    <span className="card__label text-base">{card.label}</span>
+                    <span className="card__label font-semibold text-xl text-white">{card.label}</span>
                   </div>
-                  <div className="card__content flex flex-col relative text-white">
+                  <div className="card__content flex flex-col relative text-white/60">
                     <h3
-                      className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
+                      className={`card__title font-normal text-lg m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
                     >
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
+                      className={`card__description text-sm leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
                     >
                       {card.description}
                     </p>

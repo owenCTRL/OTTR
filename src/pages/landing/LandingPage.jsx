@@ -1,5 +1,6 @@
 import Hero from "../../sections/Hero"
 import Offerings from "../../sections/Offerings"
+import Contact from "../../sections/Contact"
 
 function LandingPage() {
   return (
@@ -7,6 +8,7 @@ function LandingPage() {
       <div className="h-full w-full">
         <Hero />
         <Offerings />
+        <Contact />
       </div>
     </>
   )

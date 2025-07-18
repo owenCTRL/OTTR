@@ -1,18 +1,30 @@
 import SpotlightCard from "../components/Components/SpotlightCard";
 import MagicBento from "../components/Components/MagicBento";
-import { HiSparkles, HiMiniFingerPrint, HiMiniEye } from "react-icons/hi2";
+import {
+  HiSparkles,
+  HiMiniFingerPrint,
+  HiMiniEye,
+  HiMiniChartBar,
+  HiMiniCpuChip,
+  HiMiniUserGroup,
+  HiMiniShieldCheck,
+  HiMiniArrowsPointingOut,
+  HiMiniCog6Tooth,
+  HiMiniGlobeAlt,
+  HiMiniLockClosed,
+} from "react-icons/hi2";
 
 function Offerings() {
   return (
-    <div className="relative w-full flex flex-col items-center justify-center px-4 py-16 text-white">
-      {/* Card Group */}
-      <div className="flex flex-wrap justify-center gap-8 max-w-7xl w-full">
+    <div className="relative w-full flex flex-col items-center justify-center px-4 py-16 text-white space-y-20">
+      {/* Card Group 1 (Top 3 Cards) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
         <SpotlightCard
-          className="w-80 p-6 rounded-2xl bg-black/10 backdrop-blur-[40px] border border-white/10 shadow-md hover:shadow-xl transition-all duration-300"
+          className="w-full p-6 rounded-2xl bg-black/10 backdrop-blur-[40px] border border-white/10 shadow-md hover:shadow-xl transition-all duration-300"
           spotlightColor="rgba(255, 255, 255, 0.25)"
         >
           <div className="flex flex-col space-y-4">
-            <HiSparkles className="text-4xl text-white/80" />
+            <HiSparkles className="text-4xl text-white" />
             <h2 className="text-xl font-semibold text-white">Boost Your Experience</h2>
             <p className="text-sm text-white/60">
               Get exclusive benefits, features & 24/7 support as a permanent club member.
@@ -21,11 +33,11 @@ function Offerings() {
         </SpotlightCard>
 
         <SpotlightCard
-          className="w-80 p-6 rounded-2xl bg-black/10 backdrop-blur-[40px] border border-white/10 shadow-md hover:shadow-xl transition-all duration-300"
+          className="w-full p-6 rounded-2xl bg-black/10 backdrop-blur-[40px] border border-white/10 shadow-md hover:shadow-xl transition-all duration-300"
           spotlightColor="rgba(255, 255, 255, 0.25)"
         >
           <div className="flex flex-col space-y-4">
-            <HiMiniFingerPrint className="text-4xl text-white/80" />
+            <HiMiniFingerPrint className="text-4xl text-white" />
             <h2 className="text-xl font-semibold text-white">Private & Secure</h2>
             <p className="text-sm text-white/60">
               Cutting-edge encryption protects your identity and data across all actions.
@@ -34,11 +46,11 @@ function Offerings() {
         </SpotlightCard>
 
         <SpotlightCard
-          className="w-80 p-6 rounded-2xl bg-black/10 backdrop-blur-[40px] border border-white/10 shadow-md hover:shadow-xl transition-all duration-300"
+          className="w-full p-6 rounded-2xl bg-black/10 backdrop-blur-[40px] border border-white/10 shadow-md hover:shadow-xl transition-all duration-300"
           spotlightColor="rgba(255, 255, 255, 0.25)"
         >
           <div className="flex flex-col space-y-4">
-            <HiMiniEye className="text-4xl text-white/80" />
+            <HiMiniEye className="text-4xl text-white" />
             <h2 className="text-xl font-semibold text-white">Clear Visual Insights</h2>
             <p className="text-sm text-white/60">
               Understand your metrics at a glance with our elegant dashboard views.
@@ -48,17 +60,17 @@ function Offerings() {
       </div>
 
       {/* Visual Element Below */}
-      <div className="mt-20 w-full flex justify-center">
+      <div className="w-full flex justify-center">
         <MagicBento
           textAutoHide={true}
           disableAnimations={false}
           enableStars={true}
           enableSpotlight={false}
-          enableBorderGlow={false}
-          enableTilt={true}
-          enableMagnetism={true}
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
           clickEffect={true}
-          spotlightRadius={100}
+          spotlightRadius={50}
           particleCount={24}
           glowColor="255, 255, 255"
         />
