@@ -33,15 +33,15 @@ export default function ChatBox() {
         >
           {expanded ? (
             <>
-              <div className="bg-white/10 p-3 rounded-lg w-fit max-w-[80%] justify-center">
+              <div className="bg-white/10 p-3 text-left rounded-lg w-fit max-w-[80%]">
                 Welcome! What are your goals?
               </div>
-              <div className="bg-white/10 p-3 rounded-lg w-fit max-w-[80%]">
+              <div className="bg-white/10 p-3 text-left rounded-lg w-fit max-w-[80%]">
                 We're here to help you build, balance, and optimize your plan.
               </div>
             </>
           ) : (
-            <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-md w-fit max-w-[90%] mb-4">
+            <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-md w-fit mb-4">
               <span className="text-white text-sm">We'll help you</span>
               <RotatingText
                 texts={[            
@@ -51,7 +51,7 @@ export default function ChatBox() {
                   "make any plan a winner."
                 ]}
                 mainClassName="p-2 bg-[#0e66f1] text-white overflow-hidden justify-center rounded-lg"
-                staggerFrom="last"
+                staggerFrom="first"
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 exit={{ y: "-120%" }}

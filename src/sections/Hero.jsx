@@ -35,7 +35,7 @@ function Hero() {
       </div>
 
       {/* Navbar */}
-      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-30 w-[40%] px-9 py-3 bg-black/50 backdrop-blur-[40px] rounded-3xl flex items-center justify-between">
+      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-30 w-[90%] md:w-[40%] px-6 md:px-9 py-3 bg-black/50 backdrop-blur-[40px] rounded-3xl flex items-center justify-between">
         <img src={Logo} alt="logo" className="h-8" />
         <nav className="inline-flex text-white text-sm gap-4 font-medium">
           <a href="">Home</a>
@@ -52,7 +52,7 @@ function Hero() {
           Built to win
         </div>
 
-        <h1 className="text-6xl font-extrabold mb-4">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
           Winning Is Easy.
         </h1>
 
