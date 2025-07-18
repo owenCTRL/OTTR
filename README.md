@@ -77,13 +77,13 @@ OTTR runs on a full-stack ecosystem of modern strategy engineering tools:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[Python.org]: https://img.shields.io/badge/Python-000?style=for-the-badge&logo=python&logoColor=white
+[Python.org]: https://img.shields.io/badge/Python-0e66f1?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://Python.org
-[Javascript.com]: https://img.shields.io/badge/JavaScript-000?style=for-the-badge&logo=javascript&logoColor=black
+[Javascript.com]: https://img.shields.io/badge/JavaScript-0e66f1?style=for-the-badge&logo=javascript&logoColor=black
 [Javascript-url]: https://Javascript.com
-[Tensorflow.org]: https://img.shields.io/badge/TensorFlow-000?style=for-the-badge&logo=tensorflow&logoColor=white
+[Tensorflow.org]: https://img.shields.io/badge/TensorFlow-0e66f1?style=for-the-badge&logo=tensorflow&logoColor=white
 [Tensorflow-url]: https://www.tensorflow.org/
-[PyTorch.org]: https://img.shields.io/badge/PyTorch-000?style=for-the-badge&logo=pytorch&logoColor=white
+[PyTorch.org]: https://img.shields.io/badge/PyTorch-0e66f1?style=for-the-badge&logo=pytorch&logoColor=white
 [PyTorch-url]: https://pytorch.org/
-[Typescript.com]: https://img.shields.io/badge/Typescript-000?style=for-the-badge&logo=Typescript&logoColor=white
+[Typescript.com]: https://img.shields.io/badge/Typescript-0e66f1?style=for-the-badge&logo=Typescript&logoColor=white
 [Typescript-url]: https://www.typescript.com/
