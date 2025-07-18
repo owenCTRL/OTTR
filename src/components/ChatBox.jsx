@@ -20,7 +20,7 @@ export default function ChatBox() {
   return (
     <div
       ref={containerRef}
-      className={`w-full min-w-sm px-8 md:min-w-lg mx-auto transition-all duration-500 ease-in-out${
+        className={`w-fit min-w-[400px] max-w-full sm:max-w-lg px-4 sm:px-4 mx-auto transition-all duration-500 ease-in-out ${
         expanded ? "h-[28rem]" : "h-fit"
       }`}
     >
