@@ -1,12 +1,5 @@
 <a name="readme-top"></a>
 
-<!-- SHIELDS -->
-
-![Contributors][contributors-shield]
-![Forks][forks-shield]
-![Stars][stars-shield]
-![Issues][issues-shield]
-
 <br />
 <p align="center">
   <img src="./src/assets/ottr.png" alt="OTTR Logo" width="120" />
@@ -60,9 +53,9 @@ OTTR runs on a full-stack ecosystem of modern strategy engineering tools:
 
 [![Python][Python.org]][Python-url]
 [![Javascript][Javascript.com]][Javascript-url]
+[![Typescript][Typescript.com]][Typescript-url]
+[![PyTorch][Pytorch.com]][Pytorch-url]
 [![Tensorflow][Tensorflow.org]][Tensorflow-url]
-[![MySQL][MySQL.com]][MySQL-url]
-[![Excel][Excel.com]][Excel-url]
 
 ---
 
@@ -84,21 +77,13 @@ OTTR runs on a full-stack ecosystem of modern strategy engineering tools:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/owenAPI/SandboxResearch.svg?style=for-the-badge
-[contributors-url]: https://github.com/owenAPI/SandboxResearch/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/owenAPI/SandboxResearch.svg?style=for-the-badge
-[forks-url]: https://github.com/owenAPI/SandboxResearch/network/members
-[stars-shield]: https://img.shields.io/github/stars/owenAPI/SandboxResearch.svg?style=for-the-badge
-[stars-url]: https://github.com/owenAPI/SandboxResearch/stargazers
-[issues-shield]: https://img.shields.io/github/issues/owenAPI/SandboxResearch.svg?style=for-the-badge
-[issues-url]: https://github.com/owenAPI/SandboxResearch/issues
 [Python.org]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://Python.org
 [Javascript.com]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
 [Javascript-url]: https://Javascript.com
 [Tensorflow.org]: https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
 [Tensorflow-url]: https://www.tensorflow.org/
-[MySQL.com]: https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
-[MySQL-url]: https://MySQL.com/
-[Excel.com]: https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white
-[Excel-url]: https://www.microsoft.com/en-us/microsoft-365/excel
+[PyTorch.org]: https://img.shields.io/badge/PyTorch-00000F?style=for-the-badge&logo=pytorch&logoColor=white
+[PyTorch-url]: https://pytorch.org/
+[Typescript.com]: https://img.shields.io/badge/Typescript-217346?style=for-the-badge&logo=Typescript&logoColor=white
+[Typescript-url]: https://www.typescript.com/
