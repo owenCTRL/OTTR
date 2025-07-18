@@ -41,7 +41,7 @@ export default function ChatBox() {
               </div>
             </>
           ) : (
-            <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-md w-fit mb-4">
+            <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-xl w-fit mb-4">
               <span className="text-white text-sm">We'll help you</span>
               <RotatingText
                 texts={[            
