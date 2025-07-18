@@ -3,6 +3,7 @@ import Orb from "../components/Backgrounds/Orb";
 import ShinyText from "../components/Animations/ShinyText";
 import AnimatedContent from "../components/Animations/AnimatedContent";
 import ChatBox from "../components/ChatBox";
+import { FaCircle } from "react-icons/fa";
 
 function Hero() {
   return (
@@ -20,10 +21,14 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={3}
+          delay={1.8}
         >
-          <div className="mb-8 text-xs bg-black/50 px-4 py-1 rounded-full backdrop-blur-[40px] border border-white/20">
-            Built to win
+          <div className="mb-8 text-xs font-extrabold text-white/50 bg-black/50 px-4 py-1 rounded-full backdrop-blur-[40px] border border-white/20 flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Online
           </div>
         </AnimatedContent>
 
@@ -54,7 +59,7 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={1.2}
+          delay={1.0}
         >
           <ShinyText
             text="You just have to take the first step."
@@ -74,7 +79,7 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={0.2}
+          delay={0.4}
         >
           <ChatBox />
         </AnimatedContent>
@@ -89,10 +94,10 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={3.3}
+          delay={2.4}
         >
-          <div className="flex gap-3 flex-wrap justify-center mt-8 mb-10">
-            {["ElevenLabs", "Fireworks", "Arize", "Decagon"].map((company) => (
+          <div className="flex gap-3 flex-wrap justify-center mt-8 mb-10 text-white/50">
+            {["PyTorch", "Fireworks", "Arize", "Decagon"].map((company) => (
               <button
                 key={company}
                 className="px-4 py-1 border border-white/20 bg-white/5 text-sm rounded-md hover:bg-white/10 transition"
@@ -113,9 +118,9 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={3.6}
+          delay={2.7}
         >
-          <div className="text-xs uppercase tracking-wide text-white/50 mb-2">
+          <div className="text-xs uppercase opacity-50 mb-2">
             Used by top companies
           </div>
         </AnimatedContent>
@@ -130,13 +135,13 @@ function Hero() {
           animateOpacity={true}
           scale={1.1}
           threshold={0.2}
-          delay={3.9}
+          delay={3.0}
         >
-          <div className="flex flex-wrap justify-center items-center gap-6 opacity-80">
+          <div className="flex flex-wrap justify-center items-center gap-6">
             {["HubSpot", "VAPI", "Google", "Fireworks AI", "Parallel"].map((logo) => (
               <span
                 key={logo}
-                className="text-sm sm:text-base font-medium text-white/70"
+                className="text-sm sm:text-base font-medium text-white/50"
               >
                 {logo}
               </span>

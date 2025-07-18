@@ -31,23 +31,7 @@ function LandingPage() {
         />
       </div>
       <Hero />
-
-      <AnimatedContent
-        distance={150}
-        direction="vertical"
-        reverse={false}
-        duration={1.2}
-        ease="power3.out"
-        initialOpacity={0}
-        animateOpacity={true}
-        scale={1.1}
-        threshold={0.2}
-        delay={0}
-      >
-        <div className="h-full w-full">
-          <Offerings />
-        </div>
-      </AnimatedContent>
+      <Offerings />
       <AnimatedContent
         distance={150}
         direction="vertical"
