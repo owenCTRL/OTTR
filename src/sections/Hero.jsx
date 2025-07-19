@@ -15,6 +15,15 @@ function Hero() {
   const subtitleRef = useRef(null);
   const brandButtonsRef = useRef(null);
 
+  useEffect(() => {
+    gsap.to(".hero-container", {
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
+      delay: 0.1,
+    });
+  }, []);
+
   // Handle chat expand/collapse animations
   useEffect(() => {
     if (chatExpanded) {
@@ -65,7 +74,7 @@ function Hero() {
   return (
     <>
       {/* Hero Content */}
-      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4 text-white">
+      <div className="hero-container relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4 text-white opacity-0">
         <div ref={heroContentRef}>
           {/* Online Indicator - Always rendered, controlled by AnimatedContent and GSAP */}
           <AnimatedContent delay={2.7}>
