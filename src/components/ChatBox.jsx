@@ -1,173 +1,217 @@
 import { useState, useRef, useEffect } from "react";
+import { Send } from "lucide-react";
 import { gsap } from "gsap";
-import RotatingText from "./Animations/RotatingText";
-import { FaPaperPlane } from "react-icons/fa";
+import "./ChatBot.css";
+
+const RotatingText = ({ texts, rotationInterval = 5000 }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % texts.length);
+    }, rotationInterval);
+    return () => clearInterval(interval);
+  }, [texts, rotationInterval]);
+
+  return (
+    <div className="p-2 bg-[#0e66f1] text-white rounded-lg min-w-[140px] text-center">
+      {texts[currentIndex]}
+    </div>
+  );
+};
 
 export default function ChatBox({ onExpand, onCollapse }) {
   const [expanded, setExpanded] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [messages, setMessages] = useState([
+    { id: 1, text: "Welcome! What are your goals?", sender: "bot" },
+    { id: 2, text: "We're here to help you build, balance, and optimize your plan.", sender: "bot" },
+  ]);
+
   const containerRef = useRef(null);
   const contentRef = useRef(null);
   const messagesContainerRef = useRef(null);
-  const message1Ref = useRef(null);
-  const message2Ref = useRef(null);
   const rotatingTextRef = useRef(null);
+  // eslint-disable-next-line no-unused-vars
+  const inputContainerRef = useRef(null);
+  const messagesEndRef = useRef(null);
 
-  // Toggle expand state
   const toggleExpand = () => {
-    if (!expanded) {
+    if (!expanded && !isAnimating) {
       setExpanded(true);
       onExpand?.();
     }
   };
 
-  // Collapse on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (containerRef.current && !containerRef.current.contains(event.target)) {
-        if (expanded) {
+        if (expanded && !isAnimating) {
           setExpanded(false);
           onCollapse?.();
         }
       }
     };
-
     if (expanded) {
       document.addEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [expanded, onCollapse]);
+  }, [expanded, isAnimating, onCollapse]);
 
-  // GSAP animation for expand/collapse and messages
   useEffect(() => {
-    if (containerRef.current && contentRef.current) {
-      if (expanded) {
-        // Expand animation
-        gsap.set(containerRef.current, { width: "fit-content" });
-        gsap.to(containerRef.current, {
-          height: "28rem",
-          width: "100%",
-          duration: 1,
+    gsap.set(containerRef.current, { width: 400, height: "auto" });
+    gsap.set(messagesContainerRef.current, { display: "none", opacity: 0, y: 20 });
+    gsap.set(rotatingTextRef.current, { display: "flex", opacity: 1, y: 0, scale: 1 });
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    setIsAnimating(true);
+
+    const container = containerRef.current;
+    const rotatingText = rotatingTextRef.current;
+    const messagesContainer = messagesContainerRef.current;
+
+    gsap.killTweensOf([container, rotatingText, messagesContainer]);
+
+    const tl = gsap.timeline({ onComplete: () => setIsAnimating(false) });
+
+    if (expanded) {
+      tl.to(container, {
+        height: 448,
+        width: 512,
+        duration: 0.7,
+        ease: "power3.inOut",
+      }, 0);
+
+      tl.to(rotatingText, {
+        opacity: 0,
+        y: -20,
+        scale: 0.95,
+        duration: 0.4,
+        ease: "power2.out",
+        onComplete: () => { rotatingText.style.display = "none"; },
+      }, 0);
+
+      tl.set(messagesContainer, { display: "block", overflowY: "auto" }, 0.3);
+      tl.to(messagesContainer, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      }, 0.3);
+    } else {
+      tl.to(messagesContainer, {
+        opacity: 0,
+        y: -20,
+        duration: 0.4,
+        ease: "power2.in",
+      }, 0);
+
+      tl.set(messagesContainer, { display: "none" }, 0.5);
+
+      tl.set(rotatingText, { display: "flex", opacity: 0, y: 10, scale: 0.95 }, 0.5);
+
+      tl.add(() => {
+        const prevHeight = container.style.height;
+        container.style.height = "auto";
+        const autoHeight = container.getBoundingClientRect().height;
+        container.style.height = prevHeight;
+        gsap.to(container, {
+          height: autoHeight,
+          duration: 0.6,
           ease: "power3.inOut",
         });
-        
-        // Hide rotating text and show messages
-        if (rotatingTextRef.current) {
-          gsap.to(rotatingTextRef.current, {
-            opacity: 0,
-            duration: 0.3,
-            ease: "power3.out",
-          });
-        }
+      }, 0.5);
 
-        if (messagesContainerRef.current) {
-          gsap.set(messagesContainerRef.current, { display: "block" });
-          gsap.to(messagesContainerRef.current, {
-            opacity: 1,
-            duration: 0.5,
-            delay: 0.3,
-            ease: "power3.out",
-          });
-        }
+      tl.to(container, {
+        width: 400,
+        duration: 0.7,
+        ease: "power3.inOut",
+      }, 0.3);
 
-        // Animate messages with GSAP directly
-        if (message1Ref.current && message2Ref.current) {
-          gsap.set([message1Ref.current, message2Ref.current], {
-            y: 50,
-            opacity: 0,
-          });
-
-          gsap.to(message1Ref.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            delay: 0.5,
-            ease: "power3.out",
-          });
-
-          gsap.to(message2Ref.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            delay: 0.9,
-            ease: "power3.out",
-          });
-        }
-      } else {
-        // Collapse animation
-        gsap.to(containerRef.current, {
-          height: "auto",
-          width: "fit-content",
-          duration: 1,
-          ease: "power3.inOut",
-        });
-
-        // Hide messages and show rotating text
-        if (messagesContainerRef.current) {
-          gsap.to(messagesContainerRef.current, {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power3.out",
-            onComplete: () => {
-              gsap.set(messagesContainerRef.current, { display: "none" });
-            }
-          });
-        }
-
-        if (rotatingTextRef.current) {
-          gsap.to(rotatingTextRef.current, {
-            opacity: 1,
-            duration: 0.8,
-            delay: 0.8,
-            ease: "power3.out",
-          });
-        }
-      }
+      tl.to(rotatingText, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        ease: "power2.out",
+      }, 0.5);
     }
   }, [expanded]);
 
+  useEffect(() => {
+    if (messagesContainerRef.current && messagesEndRef.current) {
+      const messagesContainer = messagesContainerRef.current;
+      messagesContainer.scrollTo({
+        top: messagesContainer.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [messages]);
+
+  const handleSendMessage = () => {
+    if (!inputValue.trim()) return;
+
+    const newMessage = {
+      id: Date.now(),
+      text: inputValue.trim(),
+      sender: "user",
+    };
+
+    setMessages((prev) => [...prev, newMessage]);
+    setInputValue("");
+
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now() + 1,
+          text: "Thanks for sharing! We'll build a tailored plan shortly.",
+          sender: "bot",
+        },
+      ]);
+    }, 1000);
+  };
+
   return (
-    <div
-      onClick={toggleExpand}
-      ref={containerRef}
-      className="w-fit min-w-[400px] max-w-full sm:max-w-lg px-4 sm:px-4 mx-auto cursor-pointer"
-    >
-      <div className="bg-black/40 backdrop-blur-[40px] border border-white/20 rounded-2xl shadow-xl overflow-hidden flex flex-col h-full">
-        {/* Chat Messages */}
-        <div
-          ref={contentRef}
-          className="flex-1 px-4 pt-4 text-white text-sm relative"
-        >
-          {/* Always render messages, control visibility with GSAP */}
-          <div 
+    <div onClick={toggleExpand} ref={containerRef} className="mx-auto cursor-pointer">
+      <div className="bg-black/40 backdrop-blur-[40px] border border-white/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-full hover:bg-black/45 hover:shadow-3xl">
+        <div ref={contentRef} className="content-container flex-1 px-4 py-4 overflow-y-scroll text-white text-sm relative">
+          <div
             ref={messagesContainerRef}
-            className="space-y-4 opacity-0"
-            style={{ display: "none" }}
+            className="messages-container flex flex-col min-h-full"
           >
-            <div 
-              ref={message1Ref}
-              className="bg-white/10 p-3 text-left rounded-lg w-fit max-w-[80%]"
-            >
-              Welcome! What are your goals?
-            </div>
-            
-            <div 
-              ref={message2Ref}
-              className="bg-white/10 p-3 text-left rounded-lg w-fit max-w-[80%]"
-            >
-              We're here to help you build, balance, and optimize your plan.
+            <div className="flex-1">
+              {messages.map((msg) => (
+                <div
+                  key={msg.id}
+                  className={`flex w-full ${
+                    msg.sender === "bot" ? "justify-start" : "justify-end"
+                  }`}
+                >
+                  <div
+                    className={`p-4 rounded-xl max-w-[80%] backdrop-blur-sm shadow-lg ${
+                      msg.sender === "bot"
+                        ? "bg-white/10 text-white/90"
+                        : "bg-blue-500/50 text-blue-100"
+                    } text-left`}
+                  >
+                    <p className="leading-relaxed">{msg.text}</p>
+                  </div>
+                </div>
+              ))}
+              <div ref={messagesEndRef} />
             </div>
           </div>
 
-          {/* Rotating text - always rendered */}
-          <div 
-            ref={rotatingTextRef}
-            className="flex items-center space-x-2 bg-white/10 p-2 rounded-xl w-fit mb-4"
-            style={{ opacity: 1 }}
-          >
-            <span className="text-white text-sm">We'll help you</span>
+          <div ref={rotatingTextRef} className="flex items-center space-x-3 bg-white/10 p-3 rounded-xl w-fit backdrop-blur-sm shadow-lg">
+            <div className="flex items-center space-x-2">
+              <span className="text-white/90 text-sm font-medium">We'll help you</span>
+            </div>
             <RotatingText
               texts={[
                 "grow your business.",
@@ -175,39 +219,38 @@ export default function ChatBox({ onExpand, onCollapse }) {
                 "build your project.",
                 "make any plan a winner.",
               ]}
-              mainClassName="p-2 bg-[#0e66f1] text-white overflow-hidden justify-center rounded-lg"
-              staggerFrom="first"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={5000}
+              rotationInterval={3000}
             />
           </div>
         </div>
 
-        {/* Input */}
-        <div className="flex items-center space-x-2 border-t border-white/10 px-4 py-3">
+        <div className="input-container flex items-center space-x-3 border-t border-white/10 px-4 py-4 bg-gradient-to-r from-black/20 to-black/10 backdrop-blur-sm">
           <textarea
             rows={1}
-            className="flex-1 resize-none overflow-hidden bg-transparent text-white placeholder-white/60 focus:outline-none"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            className="flex-1 resize-none overflow-hidden bg-transparent text-white placeholder-white/60 focus:outline-none text-sm leading-relaxed"
             placeholder="Explain your goals..."
             onFocus={() => {
-              if (!expanded) {
+              if (!expanded && !isAnimating) {
                 setExpanded(true);
                 onExpand?.();
               }
             }}
             onInput={(e) => {
               e.target.style.height = "auto";
-              e.target.style.height = `${e.target.scrollHeight}px`;
+              e.target.style.height = `${Math.min(e.target.scrollHeight, 120)}px`;
             }}
             onClick={(e) => e.stopPropagation()}
           />
-          <button onClick={(e) => e.stopPropagation()}>
-            <FaPaperPlane className="text-white opacity-70 hover:opacity-100 transition transform hover:scale-105 cursor-pointer" />
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleSendMessage();
+            }}
+            className="p-2 active:scale-95"
+          >
+            <Send className="text-white opacity-60" size={16} />
           </button>
         </div>
       </div>
