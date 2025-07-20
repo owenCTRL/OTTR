@@ -26,16 +26,17 @@ export default function ChatBox({ onExpand, onCollapse }) {
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([
     { id: 1, text: "Welcome! What are your goals?", sender: "bot" },
-    { id: 2, text: "We're here to help you build, balance, and optimize your plan.", sender: "bot" },
+    {
+      id: 2,
+      text: "We're here to help you build, balance, and optimize your plan.",
+      sender: "bot",
+    },
   ]);
 
   const containerRef = useRef(null);
   const contentRef = useRef(null);
   const messagesContainerRef = useRef(null);
   const rotatingTextRef = useRef(null);
-  // eslint-disable-next-line no-unused-vars
-  const inputContainerRef = useRef(null);
-  const messagesEndRef = useRef(null);
 
   const toggleExpand = () => {
     if (!expanded && !isAnimating) {
@@ -46,7 +47,10 @@ export default function ChatBox({ onExpand, onCollapse }) {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
         if (expanded && !isAnimating) {
           setExpanded(false);
           onCollapse?.();
@@ -63,8 +67,17 @@ export default function ChatBox({ onExpand, onCollapse }) {
 
   useEffect(() => {
     gsap.set(containerRef.current, { width: 400, height: "auto" });
-    gsap.set(messagesContainerRef.current, { display: "none", opacity: 0, y: 20 });
-    gsap.set(rotatingTextRef.current, { display: "flex", opacity: 1, y: 0, scale: 1 });
+    gsap.set(messagesContainerRef.current, {
+      display: "none",
+      opacity: 0,
+      y: 20,
+    });
+    gsap.set(rotatingTextRef.current, {
+      display: "flex",
+      opacity: 1,
+      y: 0,
+      scale: 1,
+    });
   }, []);
 
   useEffect(() => {
@@ -80,40 +93,62 @@ export default function ChatBox({ onExpand, onCollapse }) {
     const tl = gsap.timeline({ onComplete: () => setIsAnimating(false) });
 
     if (expanded) {
-      tl.to(container, {
-        height: 448,
-        width: 512,
-        duration: 0.7,
-        ease: "power3.inOut",
-      }, 0);
+      tl.to(
+        container,
+        {
+          height: 448,
+          width: 512,
+          duration: 0.7,
+          ease: "power3.inOut",
+        },
+        0
+      );
 
-      tl.to(rotatingText, {
-        opacity: 0,
-        y: -20,
-        scale: 0.95,
-        duration: 0.4,
-        ease: "power2.out",
-        onComplete: () => { rotatingText.style.display = "none"; },
-      }, 0);
+      tl.to(
+        rotatingText,
+        {
+          opacity: 0,
+          y: -20,
+          scale: 0.95,
+          duration: 0.4,
+          ease: "power2.out",
+          onComplete: () => {
+            rotatingText.style.display = "none";
+          },
+        },
+        0
+      );
 
       tl.set(messagesContainer, { display: "block", overflowY: "auto" }, 0.3);
-      tl.to(messagesContainer, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out",
-      }, 0.3);
+      tl.to(
+        messagesContainer,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        0.3
+      );
     } else {
-      tl.to(messagesContainer, {
-        opacity: 0,
-        y: -20,
-        duration: 0.4,
-        ease: "power2.in",
-      }, 0);
+      tl.to(
+        messagesContainer,
+        {
+          opacity: 0,
+          y: -20,
+          duration: 0.4,
+          ease: "power2.in",
+        },
+        0
+      );
 
       tl.set(messagesContainer, { display: "none" }, 0.5);
 
-      tl.set(rotatingText, { display: "flex", opacity: 0, y: 10, scale: 0.95 }, 0.5);
+      tl.set(
+        rotatingText,
+        { display: "flex", opacity: 0, y: 10, scale: 0.95 },
+        0.5
+      );
 
       tl.add(() => {
         const prevHeight = container.style.height;
@@ -127,29 +162,34 @@ export default function ChatBox({ onExpand, onCollapse }) {
         });
       }, 0.5);
 
-      tl.to(container, {
-        width: 400,
-        duration: 0.7,
-        ease: "power3.inOut",
-      }, 0.3);
+      tl.to(
+        container,
+        {
+          width: 400,
+          duration: 0.7,
+          ease: "power3.inOut",
+        },
+        0.3
+      );
 
-      tl.to(rotatingText, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.5,
-        ease: "power2.out",
-      }, 0.5);
+      tl.to(
+        rotatingText,
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        0.5
+      );
     }
   }, [expanded]);
 
   useEffect(() => {
-    if (messagesContainerRef.current && messagesEndRef.current) {
-      const messagesContainer = messagesContainerRef.current;
-      messagesContainer.scrollTo({
-        top: messagesContainer.scrollHeight,
-        behavior: "smooth",
-      });
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
     }
   }, [messages]);
 
@@ -178,20 +218,27 @@ export default function ChatBox({ onExpand, onCollapse }) {
   };
 
   return (
-    <div onClick={toggleExpand} ref={containerRef} className="mx-auto cursor-pointer">
+    <div
+      onClick={toggleExpand}
+      ref={containerRef}
+      className="mx-auto cursor-pointer"
+    >
       <div className="bg-black/40 backdrop-blur-[40px] border border-white/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-full hover:bg-black/45 hover:shadow-3xl">
-        <div ref={contentRef} className="content-container flex-1 px-4 py-4 overflow-y-scroll text-white text-sm relative">
+        <div
+          ref={contentRef}
+          className="content-container flex-1 px-4 py-4 text-white text-sm relative"
+        >
           <div
             ref={messagesContainerRef}
-            className="messages-container flex flex-col min-h-full"
+            className="messages-container flex flex-col overflow-y-auto max-h-64 scroll-smooth px-1"
           >
-            <div className="flex-1">
-              {messages.map((msg) => (
+            <div className="flex-1 py-1">
+              {messages.map((msg, index) => (
                 <div
                   key={msg.id}
                   className={`flex w-full ${
                     msg.sender === "bot" ? "justify-start" : "justify-end"
-                  }`}
+                  } ${index !== messages.length - 1 ? "mb-2" : ""}`}
                 >
                   <div
                     className={`p-4 rounded-xl max-w-[80%] backdrop-blur-sm shadow-lg ${
@@ -204,13 +251,17 @@ export default function ChatBox({ onExpand, onCollapse }) {
                   </div>
                 </div>
               ))}
-              <div ref={messagesEndRef} />
             </div>
           </div>
 
-          <div ref={rotatingTextRef} className="flex items-center space-x-3 bg-white/10 p-3 rounded-xl w-fit backdrop-blur-sm shadow-lg">
+          <div
+            ref={rotatingTextRef}
+            className="flex items-center space-x-3 bg-white/10 p-3 rounded-xl w-fit backdrop-blur-sm shadow-lg"
+          >
             <div className="flex items-center space-x-2">
-              <span className="text-white/90 text-sm font-medium">We'll help you</span>
+              <span className="text-white/90 text-sm font-medium">
+                We'll help you
+              </span>
             </div>
             <RotatingText
               texts={[
@@ -239,9 +290,18 @@ export default function ChatBox({ onExpand, onCollapse }) {
             }}
             onInput={(e) => {
               e.target.style.height = "auto";
-              e.target.style.height = `${Math.min(e.target.scrollHeight, 120)}px`;
+              e.target.style.height = `${Math.min(
+                e.target.scrollHeight,
+                120
+              )}px`;
             }}
             onClick={(e) => e.stopPropagation()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+              }
+            }}
           />
           <button
             onClick={(e) => {

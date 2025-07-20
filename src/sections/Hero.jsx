@@ -23,7 +23,7 @@ function Hero() {
       delay: 0.1,
     });
   }, []);
-
+  
   // Handle chat expand/collapse animations
   useEffect(() => {
     if (chatExpanded) {
