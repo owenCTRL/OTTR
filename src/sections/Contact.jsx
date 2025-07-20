@@ -18,7 +18,7 @@ function Contact() {
   return (
     <div className="flex justify-center mb-24">
         <ProfileCard
-        name="Otto"
+        name="Owen"
         title=""
         handle="OTTRCo"
         status="Online"
