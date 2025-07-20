@@ -18,15 +18,15 @@ function Contact() {
   return (
     <div className="flex justify-center mb-24">
         <ProfileCard
-        name="Owen"
-        title=""
-        handle="OTTRCo"
-        status="Online"
-        contactText="Contact"
-        avatarUrl="/assets/person.png"
-        showUserInfo={true}
-        enableTilt={enableTilt}
-        onContactClick={() => console.log("Contact clicked")}
+          name="Owen"
+          title=""
+          handle="0xOwen"
+          status="Online"
+          contactText="Contact"
+          avatarUrl="/assets/person.png"
+          showUserInfo={true}
+          enableTilt={enableTilt}
+          onContactClick={() => window.open("https://x.com/ottrCo", "_blank")}
         />
     </div>
   );

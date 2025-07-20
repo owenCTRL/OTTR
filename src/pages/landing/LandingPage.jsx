@@ -9,20 +9,6 @@ function LandingPage() {
     <>
       {/* Background Silk */}
       <div className="fixed w-full h-full z-0">
-        {/* <Silk
-          speed={3}
-          scale={0.85}
-          color="#7b7b86ff"
-          noiseIntensity={1}
-          rotation={0}
-        /> */}
-        {/* <DarkVeil
-          hueShift={30}
-          noiseIntensity={0.025}
-          speed={0.4}
-          warpAmount={1}
-          resolutionScale={1.5}
-        /> */}
         <Aurora
           colorStops={["#0e68f3", "#11356c", "#0fb0f3"]}
           blend={1}
@@ -44,9 +30,7 @@ function LandingPage() {
         threshold={0.2}
         delay={0}
       >
-        <div className="h-full w-full">
-          <Contact />
-        </div>
+        <Contact />
       </AnimatedContent>
     </>
   )
