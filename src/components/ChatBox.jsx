@@ -1,24 +1,8 @@
 import { useState, useRef, useEffect } from "react";
+import RotatingText from "./Animations/RotatingText";
 import { Send } from "lucide-react";
 import { gsap } from "gsap";
 import "./ChatBot.css";
-
-const RotatingText = ({ texts, rotationInterval = 5000 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % texts.length);
-    }, rotationInterval);
-    return () => clearInterval(interval);
-  }, [texts, rotationInterval]);
-
-  return (
-    <div className="p-2 bg-[#0e66f1] text-white rounded-lg min-w-[140px] text-center">
-      {texts[currentIndex]}
-    </div>
-  );
-};
 
 export default function ChatBox({ onExpand, onCollapse }) {
   const [expanded, setExpanded] = useState(false);
@@ -264,13 +248,16 @@ export default function ChatBox({ onExpand, onCollapse }) {
               </span>
             </div>
             <RotatingText
-              texts={[
-                "grow your business.",
-                "land your dream job.",
-                "build your project.",
-                "make any plan a winner.",
-              ]}
-              rotationInterval={3000}
+              texts={["grow your business.", "land your dream job.", "build your project.", "make any plan a winner.",]}
+              mainClassName="p-2 bg-[#0e66f1] text-white rounded-lg min-w-[140px] text-center"
+              staggerFrom={"first"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.03}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={5000}
             />
           </div>
         </div>
