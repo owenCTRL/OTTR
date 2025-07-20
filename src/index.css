@@ -9,11 +9,3 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-html, body {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  -webkit-font-smoothing: antialiased;
-}
