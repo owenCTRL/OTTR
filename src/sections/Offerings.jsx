@@ -28,7 +28,7 @@ function Offerings() {
           ease="power3.out"
           initialOpacity={0}
           animateOpacity={true}
-          scale={1.1}
+          scale={1}
           threshold={0.2}
           delay={0}
         > 
@@ -38,9 +38,9 @@ function Offerings() {
           >
             <div className="flex flex-col space-y-4">
               <HiSparkles className="text-4xl text-white" />
-              <h2 className="text-xl font-semibold text-white">Boost Your Experience</h2>
+              <h2 className="text-xl font-semibold text-white">ottrMap™</h2>
               <p className="text-sm text-white/60">
-                Get exclusive benefits, features & 24/7 support as a permanent club member.
+                Step-by-step strategies that get you results.
               </p>
             </div>
           </SpotlightCard>
@@ -54,7 +54,7 @@ function Offerings() {
           ease="power3.out"
           initialOpacity={0}
           animateOpacity={true}
-          scale={1.1}
+          scale={1}
           threshold={0.2}
           delay={0.3}
         >
@@ -64,9 +64,9 @@ function Offerings() {
           >
             <div className="flex flex-col space-y-4">
               <HiMiniFingerPrint className="text-4xl text-white" />
-              <h2 className="text-xl font-semibold text-white">Private & Secure</h2>
+              <h2 className="text-xl font-semibold text-white">actionAI™</h2>
               <p className="text-sm text-white/60">
-                Cutting-edge encryption protects your identity and data across all actions.
+                Evolve your plans as life shifts.
               </p>
             </div>
           </SpotlightCard>
@@ -80,7 +80,7 @@ function Offerings() {
           ease="power3.out"
           initialOpacity={0}
           animateOpacity={true}
-          scale={1.1}
+          scale={1}
           threshold={0.2}
           delay={0.6}
         >
@@ -90,9 +90,9 @@ function Offerings() {
           >
             <div className="flex flex-col space-y-4">
               <HiMiniEye className="text-4xl text-white" />
-              <h2 className="text-xl font-semibold text-white">Clear Visual Insights</h2>
+              <h2 className="text-xl font-semibold text-white">winStack™</h2>
               <p className="text-sm text-white/60">
-                Understand your metrics at a glance with our elegant dashboard views.
+                Block distractions and keep your focus sharp.
               </p>
             </div>
           </SpotlightCard>
@@ -108,7 +108,7 @@ function Offerings() {
         ease="power3.out"
         initialOpacity={0}
         animateOpacity={true}
-        scale={1.1}
+        scale={1}
         threshold={0.2}
         delay={1.2}
       >

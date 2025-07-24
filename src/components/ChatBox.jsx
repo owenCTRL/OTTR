@@ -249,13 +249,13 @@ export default function ChatBox({ onExpand, onCollapse }) {
             </div>
             <RotatingText
               texts={["grow your business.", "land your dream job.", "build your project.", "make any plan a winner.",]}
-              mainClassName="p-2 bg-[#0e66f1] text-white rounded-lg min-w-[140px] text-center"
+              mainClassName="p-2 bg-[#0e66f1] text-white rounded-lg text-center"
               staggerFrom={"first"}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "-120%" }}
               staggerDuration={0.03}
-              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              splitLevelClassName="overflow-hidden"
               transition={{ type: "spring", damping: 30, stiffness: 400 }}
               rotationInterval={5000}
             />

@@ -26,7 +26,7 @@ function LandingPage() {
         ease="power3.out"
         initialOpacity={0}
         animateOpacity={true}
-        scale={1.1}
+        scale={1}
         threshold={0.2}
         delay={0}
       >

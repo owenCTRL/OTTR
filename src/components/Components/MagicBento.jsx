@@ -9,26 +9,26 @@ const MOBILE_BREAKPOINT = 768;
 const cardData = [
   {
     color: "#000000",
-    title: "Analytics",
-    description: "Track user behavior",
-    label: "Insights",
-  },
-  {
-    color: "#000000",
-    title: "Dashboard",
-    description: "Centralized data view",
+    title: "Dashbaord",
+    description: "Goals and Strategies hub",
     label: "Overview",
   },
   {
     color: "#000000",
+    title: "Analytics",
+    description: "Track your Strategies",
+    label: "Insights",
+  },
+  {
+    color: "#000000",
     title: "Collaboration",
-    description: "Work together seamlessly",
-    label: "Teamwork",
+    description: "Edit Goals and Strategies on the fly",
+    label: "Customization",
   },
   {
     color: "#000000",
     title: "Automation",
-    description: "Streamline workflows",
+    description: "Streamline Strategy implementation",
     label: "Efficiency",
   },
   {
