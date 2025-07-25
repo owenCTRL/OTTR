@@ -80,7 +80,7 @@ function Hero() {
           <AnimatedContent delay={2.7}>
             <div 
               ref={onlineIndicatorRef}
-              className="w-fit mx-auto mb-8 text-xs font-extrabold text-white/50 bg-black/50 px-4 py-1 rounded-full backdrop-blur-[40px] border border-white/20 flex items-center gap-2"
+              className="w-fit mx-auto mb-8 text-xs font-medium text-white/50 bg-black/50 px-4 py-1 rounded-full backdrop-blur-[40px] border border-white/20 flex items-center gap-2"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -104,7 +104,7 @@ function Hero() {
                 text="You just have to take the first step."
                 disabled={false}
                 speed={10}
-                className="mb-8 text-lg"
+                className="mb-8 text-lg font-medium"
               />
             </div>
           </AnimatedContent>
@@ -123,7 +123,7 @@ function Hero() {
           <AnimatedContent delay={3.1}>
             <div 
               ref={brandButtonsRef}
-              className="flex gap-3 flex-wrap justify-center mt-8 mb-10 text-white/50"
+              className="flex gap-3 flex-wrap font-medium justify-center mt-8 mb-10 text-white/50"
             >
               {["ottrMap™", "actionAI™", "winStack™"].map((company) => (
                 <button
