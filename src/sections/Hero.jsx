@@ -74,7 +74,7 @@ function Hero() {
   return (
     <>
       {/* Hero Content */}
-      <div className="hero-container relative z-20 flex flex-col items-center justify-center h-[80vh] sm:h-[65vh] text-center px-4 text-white opacity-0">
+      <div className="hero-container relative z-20 flex flex-col items-center justify-center h-[100vh] text-center px-4 text-white opacity-0">
         <div ref={heroContentRef}>
           {/* Online Indicator - Always rendered, controlled by AnimatedContent and GSAP */}
           <AnimatedContent delay={2.7}>
