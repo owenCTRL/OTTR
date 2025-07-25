@@ -9,7 +9,7 @@ const MOBILE_BREAKPOINT = 768;
 const cardData = [
   {
     color: "#000000",
-    title: "Dashbaord",
+    title: "Dashboard",
     description: "Goals and Strategies hub",
     label: "Overview",
   },

@@ -205,9 +205,9 @@ export default function ChatBox({ onExpand, onCollapse }) {
     <div
       onClick={toggleExpand}
       ref={containerRef}
-      className="mx-auto cursor-pointer"
+      className="mx-auto px-4 max-w-screen cursor-pointer"
     >
-      <div className="bg-black/40 backdrop-blur-[40px] border border-white/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-full hover:bg-black/45 hover:shadow-3xl">
+      <div className="bg-black/40 backdrop-blur-[40px] border border-white/20 rounded-2xl shadow-2xl flex flex-col h-full hover:bg-black/45 hover:shadow-3xl">
         <div
           ref={contentRef}
           className="content-container flex-1 px-4 py-4 text-white text-sm relative"
