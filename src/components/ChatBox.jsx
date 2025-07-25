@@ -262,7 +262,7 @@ export default function ChatBox({ onExpand, onCollapse }) {
           </div>
         </div>
 
-        <div className="input-container flex items-center space-x-3 border-t border-white/10 px-4 py-4 bg-gradient-to-r from-black/20 to-black/10 backdrop-blur-sm">
+        <div className="input-container flex items-center space-x-3 border-t border-white/10 px-4 py-4">
           <textarea
             rows={1}
             value={inputValue}
